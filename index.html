@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gamba: Marry Gaussian Splatting with Mamba <br> for Single-View 3D Reconstruction</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/project.css" media="screen" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/iconize.css" />
+    <script src="js/google-code-prettify/prettify.js"></script> -->
+  </head>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2> Gamba: Marry Gaussian Splatting with Mamba <br> for Single-View 3D Reconstruction</h2>
+            <h4 style="color:#5a6268;">Arxiv 2024</h4>
+            <hr>
+            <h6 style="line-height: 26px;">
+              <a href="https://florinshen.github.io" >Qiuhong Shen</a><sup>1*</sup>,
+              <a href="" target="_blank">Zike Wu</a><sup>3*</sup>,
+              <a href="" target="_blank">Xuanyu Yi</a><sup>3*</sup>,
+              <a href="https://panzhous.github.io/">Pan Zhou</a><sup>2,4†</sup>,
+              <a href="https://personal.ntu.edu.sg/hanwangzhang/">Hanwang Zhang</a><sup>3</sup>,
+              <a href="https://yanshuicheng.info/">Shuicheng Yan</a><sup>5</sup>,
+              <a href="https://sites.google.com/site/sitexinchaowang/">Xinchao Wang</a><sup>1,†</sup>,
+            </h6>
+          <p>
+              <sup>1</sup>National University of Singapore &nbsp;&nbsp;
+              <sup>2</sup>Singapore Management University &nbsp;&nbsp;
+              <sup>3</sup>Nanyang Technological University &nbsp;&nbsp;
+              <br>
+              <sup>4</sup>SEA AI Lab &nbsp;&nbsp;
+              <sup>5</sup>Skywork AI &nbsp;&nbsp;
+              <br>
+              <sup>*</sup>Equal contribution &nbsp;&nbsp;
+              <sup>†</sup>Corresponding Authors
+          </p>
+
+          <div class="row justify-content-center">
+            <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2403.18795" role="button"  target="_blank">
+                  <i class="fa fa-file"></i> Paper</a> </p>
+            </div>
+            <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"  target="_blank">
+                  <i class="fa fa-github-alt"></i> Code </a> </p>
+            </div>
+            <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"  target="_blank">
+                  <i class="fa fa-database"></i> Model </a> </p>
+            </div>
+            <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="" role="button"  target="_blank">
+                  <i class="fa fa-desktop"></i> Demo </a> </p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+        <div class="warp-container">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h3>Abstract</h3>
+                <hr style="margin-top:0px">
+                <!-- <h6 style="color:#8899a5" class="text-left"> 
+                  TGS enables fast reconstruction from single-view image. It builds the 3D representation upon a hybrid Triplane-Gaussian representation by evaluating a transformer-based framework, from which 3D Gaussians would be decoded.
+                </h6> -->
+    
+                  <!-- <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                      <source src="video/teaser.mp4" type="video/mp4">
+                  </video> -->
+                  <img src="assets/gamba-framework.png" alt="Overview" width="100%">
+    
+                  <br>
+                
+              <p class="text-left">
+                We tackle the challenge of efficiently reconstructing a 3D asset from a single image at millisecond speed. Existing methods for single-image 3D reconstruction are primarily based on Score Distillation Sampling (SDS) with Neural 3D representations. Despite promising results, these approaches encounter practical limitations due to lengthy optimizations and significant memory consumption. In this work, we introduce Gamba, an end-to-end 3D reconstruction model from a single-view image, emphasizing two main insights: (1) Efficient Backbone Design: introducing a Mamba-based GambaFormer network to model 3D Gaussian Splatting (3DGS) reconstruction as sequential prediction with linear scalability of token length, thereby accommodating a substantial number of Gaussians; (2) Robust Gaussian Constraints: deriving radial mask constraints from multi-view masks to eliminate the need for warmup supervision of 3D point clouds in training. We trained Gamba on Objaverse and assessed it against existing optimization-based and feed-forward 3D reconstruction approaches on the GSO Dataset, among which Gamba is the only end-to-end trained single-view reconstruction model with 3DGS. Experimental results demonstrate its competitive generation capabilities both qualitatively and quantitatively and highlight its remarkable speed: Gamba completes reconstruction within 0.05 seconds on a single NVIDIA A100 GPU, which is about 1000x faster than optimization-based methods.
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+        <div class="warp-container">
+          <div class="row">
+            <div class="col-12 text-center">
+                <h2>Qualitative results</h2>
+                <hr style="margin-top:0px">
+                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="video/gamba-teaser.mp4" type="video/mp4">
+                </video>
+                <p class="text-center">
+                  reconstruction results from web images.
+          </div>
+        </div>
+    </div>
+  </section>
+  <br>
+
+
+
+  <!-- citing -->
+  <div class="container">
+    <div class="warp-container">
+    <div class="row">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{,
+    title={Triplane Meets Gaussian Splatting: Fast and Generalizable Single-View 3D Reconstruction with Transformers},
+    author={Zi-Xin Zou, Zhipeng Yu, Yuan-Chen Guo, Yangguang Li, Ding Liang, Yan-Pei Cao, Song-Hai Zhang},
+    journal={arXiv preprint arXiv:2312.09147},
+    year={2023}
+}</code></pre>
+          <hr>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <footer class="text-center" style="margin-bottom:10px">
+    This website is adapted from <a href="https://liuyuan-pal.github.io/SyncDreamer/" target="_blank">SyncDreamer</a>.
+  </footer>
+
+</body>
+</html>
