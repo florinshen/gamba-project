@@ -1,1 +1,1 @@
-# TriplaneGaussian
+# Gamba: Marry Gaussian Splatting with Mamba for Single-View 3D Reconstruction
