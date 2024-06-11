@@ -144,5 +144,41 @@
     This website is adapted from <a href="https://liuyuan-pal.github.io/SyncDreamer/" target="_blank">SyncDreamer</a>.
   </footer>
 
+  <div class="container" style="text-align:center;">
+    <div id="map-container" style="display:inline-block; width: 180px; position: relative;">
+      <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=fuBdr5aU5Dbz5oxFfHROeQfWIrUVdIqbMDwwOOI10Wc'></script>
+    </div>
+  </div>
+  
+  <script>
+    window.onload = function() {
+      var mapContainer = document.getElementById('map-container');
+      var iframe = mapContainer.querySelector('iframe');
+  
+      if (iframe) {
+        // Wait for the iframe to load to get its original dimensions
+        iframe.onload = function() {
+          var originalWidth = iframe.contentWindow.document.body.scrollWidth;
+          var originalHeight = iframe.contentWindow.document.body.scrollHeight;
+          var aspectRatio = originalWidth / originalHeight;
+  
+          mapContainer.style.height = mapContainer.offsetWidth / aspectRatio + 'px';
+  
+          // Set iframe styles
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.style.position = 'absolute';
+          iframe.style.top = '0';
+          iframe.style.left = '0';
+  
+          // Adjust container height on window resize to maintain aspect ratio
+          window.onresize = function() {
+            mapContainer.style.height = mapContainer.offsetWidth / aspectRatio + 'px';
+          };
+        };
+      }
+    };
+  </script>
+
 </body>
 </html>
